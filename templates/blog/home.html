@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block header %}
+    <h1>Home Page</h1>
+{% endblock %}
+
+{% block content %}
+
+{% for c in categories %}
+<ul>
+<!--    <li><a href='{{ q.get_absolute_url }}'>{{ q.question_text }}</a></li>-->
+    <li><a href="{% url 'detail' c.slug %}">{{ c.category_name }}</a></li>
+    <p><a href=""><input type="submit" value="Update"></a><span> </span> <input type="submit" value="Delete"></p>
+
+</ul>
+
+{% endfor %}
+{% endblock %}
+
+</body>
+</html>

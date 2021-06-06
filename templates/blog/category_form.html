@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CreateForm</title>
+    <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
+</head>
+<body>
+    <div class="container2">
+        <h1>Category form</h1>
+
+        <div class="content">
+            {% block content%}
+<!--            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}-->
+            <form action="#" method="post">
+            {%csrf_token%}
+            {{form.firstname}}
+            <hr>
+            <input type="submit" value="CREATE">
+<!--            <input type="submit" value="UPDATE">-->
+<!--            <input type="submit" value="DELETE">-->
+            </form>
+            {% endblock %}
+
+            <p>You can also update and delete existing categories <a href="{% url 'home' %}">update</a> <a href="{% url 'home' %}">delete</a>  </p>
+<!--            <input class="create2" type="submit" value="CREATE CATEGORY">-->
+        </div>
+
+    </div>
+
+</body>
+</html>

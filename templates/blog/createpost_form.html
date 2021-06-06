@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CreateForm</title>
+    <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Post form</h1>
+
+        <div class="content">
+            {% block content%}
+<!--            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}-->
+            <form action="#" method="post">
+            {%csrf_token%}
+            {{form.as_p}}
+            <hr>
+            <span><input type="submit" value="CREATE"></span>
+<!--            <span><a href="{% url 'home' %}"><input type="submit" value="UPDATE"></a></span>-->
+<!--            <span><input type="submit" value="DELETE"></span>-->
+             </form>
+            {% endblock %}
+            <p>You can also update and delete existing categories <a href="">update</a> <a href="{% url 'home' %}">delete</a></p>
+
+
+
+
+<!--            <button class="create">CREATE POST</button>-->
+
+
+<!--            <input class="create" type="button" value="CREATE POST">-->
+        </div>
+
+    </div>
+
+</body>
+</html>

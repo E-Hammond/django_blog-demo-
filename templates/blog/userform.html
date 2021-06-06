@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UserForm</title>
+    <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
+</head>
+<body>
+    <div class="container2">
+        <h1>User form</h1>
+
+        <div class="content">
+            {% block content%}
+<!--            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}-->
+            <form action="#" method="POST">
+            {%csrf_token%}
+
+                <p>{{form.username.label}}
+                    {{form.username}}</p>
+
+                <p>{{form.email.label}}
+                    {{form.email}}</p>
+
+                <p>{{form.password.label}}
+                    {{form.password}}</p>
+
+                <p>{{form.gender.label}}
+                    {{form.gender}}</p>
+
+                <p>{{form.profile_pic.label}}
+                    {{form.profile_pic}}</p>
+
+                <p>{{form.profile_desc.label}}
+                    {{form.profile_desc}}</p>
+
+                {{form.errors}}
+            <hr>
+            <input type="submit" value="Create Account">
+            <p>Already have an account?<a href="{% url 'login' %}">Login</a></p>
+            </form>
+            {% endblock %}
+
+<!--            <input class="create2" type="submit" value="CREATE CATEGORY">-->
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--{% load static %}-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--	<title>RegistrationForm</title>-->
+<!--	<meta charset="UTF-8">-->
+<!--	<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+<!--	<link rel="icon" type="image/png" href="{% static 'registration/images/icons/favicon.ico' %}"/>-->
+<!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+<!--	<link rel="stylesheet" type="text/css" href="{% static 'registration/vendor/bootstrap/css/bootstrap.min.css' %}">-->
+<!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+<!--	<link rel="stylesheet" type="text/css" href="{% static 'registration/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">-->
+<!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+<!--	<link rel="stylesheet" type="text/css" href="{% static 'registration/vendor/animate/animate.css' %}">-->
+<!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+<!--	<link rel="stylesheet" type="text/css" href="{% static 'registration/vendor/css-hamburgers/hamburgers.min.css' %}">-->
+<!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+<!--	<link rel="stylesheet" type="text/css" href="{% static 'registration/vendor/select2/select2.min.css' %}">-->
+<!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+<!--	<link rel="stylesheet" type="text/css" href="{% static 'registration/css/util.css' %}">-->
+<!--	<link rel="stylesheet" type="text/css" href="{% static 'registration/css/main.css' %}">-->
+<!--	<link rel="stylesheet" type="text/css" href="{% static 'registration/css/style.css' %}">-->
+<!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+<!--</head>-->
+<!--<body>-->
+
+<!--	<div class="limiter">-->
+<!--		<div class="container-login100">-->
+<!--			<div class="wrap-login100">-->
+<!--				<div class="login100-pic js-tilt" data-tilt>-->
+<!--					<img src="{% static 'registration/images/img-01.png' %}" alt="IMG">-->
+<!--				</div>-->
+
+<!--				<form method="POST">-->
+<!--					{% csrf_token%}-->
+<!--					<span class="login100-form-title">-->
+<!--						User Login-->
+<!--					</span>-->
+
+<!--					<p style="margin-bottom:15px"><span >Username : </span><span class="form_borders">{{form.username}}</span></p>-->
+<!--                    <p style="margin-bottom:16px"><span>Email : </span><span class="form_borders">{{form.email}}</span></p>-->
+<!--                    <p style="margin-bottom:16px"><span>Password : </span><span class="form_borders">{{form.password}}</span></p>-->
+<!--                    <p style="margin-bottom:16px"><span>Gender : </span><span class="form_borders">{{form.gender}}</span></p>-->
+<!--                    <p style="margin-bottom:16px"><span>Profile Picture : </span><span class="form_borders">{{form.profile_pic}}</span></p>-->
+<!--					<p style="margin-bottom:16px"><span>Profile Description : </span><span class="form_borders">{{form.profile_desc}}</span></p>-->
+<!--                    <div >-->
+<!--						<button class="login">-->
+<!--							Login-->
+<!--						</button>-->
+<!--					</div>-->
+
+<!--					<div class="text-center p-t-12">-->
+<!--						<span class="txt1">-->
+<!--							Forgot-->
+<!--						</span>-->
+<!--						<a class="txt2" href="#">-->
+<!--							Username / Password?-->
+<!--						</a>-->
+<!--					</div>-->
+
+<!--					<div class="text-center p-t-136">-->
+<!--						<a class="txt2" href="#">-->
+<!--							Create your Account-->
+<!--							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>-->
+<!--						</a>-->
+<!--					</div>-->
+<!--				</form>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+
+
+
+
+<!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+<!--	<script src="{% static 'registration/vendor/jquery/jquery-3.2.1.min.js' %}"></script>-->
+<!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+<!--	<script src="{% static 'registration/vendor/bootstrap/js/popper.js' %}"></script>-->
+<!--	<script src="{% static 'registration/vendor/bootstrap/js/bootstrap.min.js' %}"></script>-->
+<!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+<!--	<script src="{% static 'registration/vendor/select2/select2.min.js' %}"></script>-->
+<!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+<!--	<script src="{% static 'registration/vendor/tilt/tilt.jquery.min.js' %}"></script>-->
+<!--	<script >-->
+<!--		$('.js-tilt').tilt({-->
+<!--			scale: 1.1-->
+<!--		})-->
+<!--	</script>-->
+<!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+<!--	<script src="{% static 'registration/js/main.js' %}"></script>-->
+
+<!--</body>-->
+<!--</html>-->

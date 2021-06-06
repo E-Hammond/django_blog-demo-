@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block header %}
+<h1>{{ category.category_name }}</h1>
+<!--<p>Published on: <span>{{ question.pub_date }}</span></p> -->
+{% endblock%}
+
+{% block content %}
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form action="{% url 'posts_details' category.slug %}" method="post">
+{% csrf_token %}
+{% for choice in category.posts_set.all %}
+    <ul>
+        <li><a href="#">{{ choice.title }}</a><br></li>
+    </ul>
+
+
+<!--    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">-->
+<!--    <label for="choice{{ forloop.counter }}">{{ choice.title }}</label><br>-->
+{% endfor %}
+<!--<input type="submit" value="Vote">-->
+</form>
+
+{% endblock %}
+
+
+
+</body>
+</html>

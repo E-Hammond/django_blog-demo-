@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CreateForm</title>
+    <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Post form</h1>
+
+        <div class="content">
+            {% block content%}
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            <form action="" method="post">
+            {%csrf_token%}
+            {{post.as_p}}
+            </form>
+            {% endblock %}
+            <hr>
+            <input class="create" type="submit" value="UPDATE POST">
+        </div>
+
+    </div>
+
+</body>
+</html>
